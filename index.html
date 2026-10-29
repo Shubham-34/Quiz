@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quiz Master 🧠</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- ================= START SCREEN ================= -->
+
+        <div id="startScreen" class="screen active">
+
+            <div class="logo">🧠</div>
+
+            <h1>Quiz Master</h1>
+
+            <p class="subtitle">
+                Test your knowledge and challenge yourself!
+            </p>
+
+            <div class="start-box">
+
+                <label for="userName">Enter Your Name</label>
+
+                <input
+                    type="text"
+                    id="userName"
+                    placeholder="Enter your name"
+                    maxlength="30"
+                >
+
+                <p id="nameError" class="error"></p>
+
+                <button id="startBtn" class="primary-btn">
+                    Start Quiz 🚀
+                </button>
+
+            </div>
+
+            <div class="quiz-info">
+                <div>
+                    <strong>50</strong>
+                    <span>Questions</span>
+                </div>
+
+                <div>
+                    <strong>15s</strong>
+                    <span>Per Question</span>
+                </div>
+
+                <div>
+                    <strong>5</strong>
+                    <span>Topics</span>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- ================= QUIZ SCREEN ================= -->
+
+        <div id="quizScreen" class="screen">
+
+            <div class="quiz-header">
+
+                <div>
+                    <span>Question</span>
+                    <strong id="questionNumber">1 / 50</strong>
+                </div>
+
+                <div class="timer-box">
+                    ⏱️
+                    <span id="timer">15</span>s
+                </div>
+
+            </div>
+
+
+            <!-- Progress Bar -->
+
+            <div class="progress-container">
+                <div id="progressBar" class="progress-bar"></div>
+            </div>
+
+
+            <!-- Live Statistics -->
+
+            <div class="live-stats">
+
+                <div class="stat-card">
+                    <span>🏆 Score</span>
+                    <strong id="scoreLive">0</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>✅ Correct</span>
+                    <strong id="correctLive">0</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>❌ Wrong</span>
+                    <strong id="wrongLive">0</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>📝 Answered</span>
+                    <strong id="answeredLive">0</strong>
+                </div>
+
+            </div>
+
+
+            <!-- Question -->
+
+            <div class="question-box">
+
+                <h2 id="question">
+                    Question will appear here
+                </h2>
+
+                <div id="answers" class="answers"></div>
+
+            </div>
+
+
+            <div class="quiz-footer">
+
+                <button id="nextBtn" class="primary-btn" disabled>
+                    Next Question →
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= RESULT SCREEN ================= -->
+
+        <div id="resultBox" class="screen">
+
+            <div class="result-icon">
+                🎉
+            </div>
+
+            <h1>Quiz Completed!</h1>
+
+            <p>
+                Well done, <strong id="displayName">Student</strong>!
+            </p>
+
+
+            <!-- Final Statistics -->
+
+            <div id="finalStats" class="final-stats">
+
+                <h2>📊 Quiz Statistics</h2>
+
+                <div class="final-stat-grid">
+
+                    <div>
+                        <span>Total Questions</span>
+                        <strong id="totalQuestions">50</strong>
+                    </div>
+
+                    <div>
+                        <span>Correct</span>
+                        <strong id="finalCorrect">0</strong>
+                    </div>
+
+                    <div>
+                        <span>Wrong</span>
+                        <strong id="finalWrong">0</strong>
+                    </div>
+
+                    <div>
+                        <span>Percentage</span>
+                        <strong id="finalPercentage">0%</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- AI Analysis -->
+
+            <div id="aiAnalysis" class="ai-analysis">
+
+                <h2>🤖 AI Performance Analysis</h2>
+
+                <div class="analysis-item">
+                    <span>Performance Level</span>
+                    <strong id="performanceLevel">-</strong>
+                </div>
+
+                <div class="analysis-item">
+                    <span>Predicted Performance</span>
+                    <strong id="predictedScore">-</strong>
+                </div>
+
+                <div class="analysis-item">
+                    <span>Weak Area</span>
+                    <strong id="weakTopic">-</strong>
+                </div>
+
+                <div class="recommendation">
+
+                    <span>💡 Recommendation</span>
+
+                    <p id="recommendation">
+                        -
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <p id="saveStatus" class="save-status">
+                Saving your result...
+            </p>
+
+
+            <!-- Recent Results -->
+
+            <div class="results-section">
+
+                <h2>📈 Recent Results</h2>
+
+                <div id="resultsList">
+                    Loading results...
+                </div>
+
+            </div>
+
+
+            <!-- Leaderboard -->
+
+            <div class="results-section">
+
+                <h2>🏆 Global Leaderboard</h2>
+
+                <div id="leaderboard">
+                    Loading leaderboard...
+                </div>
+
+            </div>
+
+
+            <button id="restartBtn" class="primary-btn">
+                🔄 Play Again
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- Firebase + Quiz JavaScript -->
+
+    <script type="module" src="script.js"></script>
+
+</body>
+</html>
